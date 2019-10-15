@@ -1,0 +1,3 @@
+{:require  [mbstats-ten.app]
+ :init-fns [mbstats-ten.app/init]
+ :compiler-options {:asset-path "js/app.out"}}
