@@ -7,13 +7,23 @@
 
 ;; define your app data so that it doesn't get over-written on reload
 
-(defonce app-state (atom {:text "Poopie world!"}))
-
-
+;(defonce app-state (atom {:text "Poopie world!"}))
+(defn- textarea-keydown [callback]
+  (fn [e]
+    (do
+      (js/alert e)
+        ;(callback (.. e -target -value))
+        ) ) ) 
+(rum/defc gimmeBold[]
+  [:div ]
+  )
 (rum/defc mbprint []
   [:div
-   [:h1 (:text @app-state)]
-   [:h3 "Edit!!!!!!!!!!!!!! this and watch it change!"]])
+   [:h3 "Edit!!!!!!!!!!!!!! this and watch it change!"]
+   [:label#intro-lab "Introvert"]
+   [:textarea#intro-val {:on-change (fn [e]
+                                      (js/alert (.. e -target -value)))} "woo"]
+   ])
 
 (rum/mount (mbprint)
            (. js/document (getElementById "app")))
