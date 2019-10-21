@@ -5,13 +5,13 @@
             ))
 (defclass bold)
 (defstyles screen
-    [:body
+    [[:body
      {:font-family "Helvetica Neue"
       :font-size   "16px"
-      :line-height 1.5}
-    'bold {
+      :line-height 1.5}]
+    ["bold" {
            :font-weight "bold";
            :font-size "24px"
-           }
+           }]
     ])
 
