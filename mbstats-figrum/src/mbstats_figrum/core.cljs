@@ -10,6 +10,8 @@
 (defonce valuemap {:intro (atom 0), :extro (atom 0)})
 (defonce titlemap {:intro "Introvert", :extro "Extrovert"})
 (defonce catagorylist [:intro :extro])
+(defonce opposites {:intro :extro, :extro :intro})
+(defn- change-value [key val] (reset! (valuemap key) val))
 (defn- textarea-keydown [callback]
   (fn [e]
     (do
@@ -17,14 +19,19 @@
         ;(callback (.. e -target -value))
         ) ) ) 
 (rum/defc gimmeBold[]
-  [:div ]
+  [:div.bold @(valuemap :intro)  ]
   )
 (rum/defc mbprint []
   [:div
    [:h3 "Edit!!!!!!!!!!!!!! this and watch it change!"]
-   [:label#intro-lab "Introvert"]
+   [:label#intro-lab @(titlemap :intro)]
    [:textarea#intro-val {:on-change (fn [e]
-                                      (js/alert (.. e -target -value)))} "woo"]
+                                      ((change-value :intro (.. e -target -value))
+                                       (rum/mount (gimmeBold) (. js/document (getElementById "bapp"))))
+                                      )} @(valuemap :intro)]
+   [:label#extro-lab  @(titlemap :extro)]
+   [:textarea#extro-val {:on-change (fn [e]
+                                      (js/alert (.. e -target -value)))} @(valuemap :extro)]
    ])
 
 (rum/mount (mbprint)
