@@ -9,10 +9,14 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.520"]
                  [org.clojure/core.async  "0.4.500"]
-                 [rum "0.11.3"]]
+                 [rum "0.11.3"]
+                 [garden "1.3.3"]
+                 ]
 
   :plugins [[lein-figwheel "0.5.19"]
-            [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
+            [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
+            [lein-garden "0.3.0"]
+            ]
 
   :source-paths ["src"]
 
@@ -86,7 +90,11 @@
              ;; to pipe all the output to the repl
              ;; :server-logfile false
              }
-
+  :garden {:builds [{:id "screen"
+                     :source-paths ["src/garden"]
+                     :stylesheet mbstats-figrum.styles/screen
+                     :compiler {:output-to "resources/public/css/screen.css"
+                                :pretty-print? false}}]}
   :profiles {:dev {:dependencies [[binaryage/devtools "0.9.10"]
                                   [figwheel-sidecar "0.5.19"]]
                    ;; need to add dev source path here to get user.clj loaded
