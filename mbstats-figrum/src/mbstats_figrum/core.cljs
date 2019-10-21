@@ -11,7 +11,7 @@
 (defonce titlemap {:intro "Introvert", :extro "Extrovert"})
 (defonce catagorylist [:intro :extro])
 (defonce opposites {:intro :extro, :extro :intro})
-(defn- change-value [key val] (reset! (valuemap key) val))
+(defn- change-value [key val] (reset! (valuemap key) (inc val)))
 (defn- textarea-keydown [callback]
   (fn [e]
     (do
