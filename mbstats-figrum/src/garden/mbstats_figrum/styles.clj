@@ -9,7 +9,7 @@
      {:font-family "Helvetica Neue"
       :font-size   "16px"
       :line-height 1.5}]
-    ["bold" {
+    [bold {
            :font-weight "bold";
            :font-size "24px"
            }]
