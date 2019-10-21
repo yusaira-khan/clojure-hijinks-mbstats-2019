@@ -7,7 +7,9 @@
 
 ;; define your app data so that it doesn't get over-written on reload
 
-;(defonce app-state (atom {:text "Poopie world!"}))
+(defonce valuemap {:intro (atom 0), :extro (atom 0)})
+(defonce titlemap {:intro "Introvert", :extro "Extrovert"})
+(defonce catagorylist [:intro :extro])
 (defn- textarea-keydown [callback]
   (fn [e]
     (do
