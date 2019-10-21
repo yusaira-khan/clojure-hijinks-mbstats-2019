@@ -1,5 +1,6 @@
 (ns mbstats-figrum.core
-    (:require [rum.core :as rum]))
+  (:require [rum.core :as rum]
+            [cljs.reader :refer [read-string]])) 
 
 (enable-console-print!)
 
@@ -11,7 +12,7 @@
 (defonce titlemap {:intro "Introvert", :extro "Extrovert"})
 (defonce catagorylist [:intro :extro])
 (defonce opposites {:intro :extro, :extro :intro})
-(defn- change-value [key val] (reset! (valuemap key) (inc val)))
+(defn- change-value [key val] (reset! (valuemap key) (+ (read-string val) 1)))
 (defn- textarea-keydown [callback]
   (fn [e]
     (do
