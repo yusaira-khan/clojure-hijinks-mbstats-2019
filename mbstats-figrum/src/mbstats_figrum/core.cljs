@@ -21,13 +21,21 @@
 (rum/defc gimmeBold[]
   [:div.bold @(valuemap :intro)  ]
   )
+(defn- introchange[e]
+  ((change-value :intro (.. e -target -value))
+  (rum/mount (gimmeBold) (. js/document (getElementById "bapp"))))
+  )
+(defn- extrochange[e]
+  (js/alert (.. e -target -value))
+)
+
 (rum/defc mbprint []
   [:div
    [:h3 "Edit!!!!!!!!!!!!!! this and watch it change!"]
    [:label#intro-lab (titlemap :intro)]
-   [:textarea#intro-val  @(valuemap :intro)]
+   [:textarea#intro-val {:on-change introchange} @(valuemap :intro)]
    [:label#extro-lab  (titlemap :extro)]
-   [:textarea#extro-val 
+   [:textarea#extro-val {:on-change extrochange}
                         @(valuemap :extro)]
    ])
 
