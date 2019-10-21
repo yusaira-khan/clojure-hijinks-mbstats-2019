@@ -4,9 +4,8 @@
 
 (enable-console-print!)
 
-(println "This text is printed from src/mbstats-figrum/core.cljs. Go ahead and edit it and see reloading in action.")
+(println "example print")
 
-;; define your app data so that it doesn't get over-written on reload
 
 (defonce valuemap {:intro (atom 0), :extro (atom 0)})
 (defonce titlemap {:intro "Introvert", :extro "Extrovert"})
