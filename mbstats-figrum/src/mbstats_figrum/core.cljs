@@ -11,7 +11,8 @@
 (defonce titlemap {:intro "Introvert", :extro "Extrovert"})
 (defonce catagorylist [:intro :extro])
 (defonce opposites {:intro :extro, :extro :intro})
-(defn- change-value [key val] (reset! (valuemap key) (+ (read-string val) 1)))
+(defn- change-value [key val] (reset! (valuemap key)   (read-string val)))
+(defn- align-opposite-val [key] (reset! (valuemap (opposites key)) (- 100 @(valuemap key) )))
 (defn- textarea-keydown [callback]
   (fn [e]
     (do
@@ -19,11 +20,14 @@
         ;(callback (.. e -target -value))
         ) ) ) 
 (rum/defc gimmeBold[]
-  [:div.bold @(valuemap :intro)  ]
+  [:div.bold [:div (titlemap :intro)] [:div @(valuemap :intro)]  [:div (titlemap :extro)] [:div @(valuemap :extro)]  ]
+  
   )
 (defn- introchange[e]
   ((change-value :intro (.. e -target -value))
-  (rum/mount (gimmeBold) (. js/document (getElementById "bapp"))))
+   (align-opposite-val :intro)
+   (rum/mount (gimmeBold) (. js/document (getElementById "bapp")))
+   )
   )
 (defn- extrochange[e]
   (js/alert (.. e -target -value))
