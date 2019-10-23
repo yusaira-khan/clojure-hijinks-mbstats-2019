@@ -27,17 +27,24 @@
   )
 (defn- extrochange[e]
   (js/alert (.. e -target -value))
-)
+  )
+(defn- label-component-tag [label] (keyword (concat "label#" label "-lab"))) ;:label#intro-lab
+(defn- label-component-val [label] ( (titlemap label :intro))) ;:label#intro-lab
+(rum/defc label-component [label] [(label-component-tag label) (label-component-val label)])
+(defn- writeable-component-tag [label] (keyword (concat "textarea#" label "-val"))) ;:textarea#intro-val
+(defn- writeable-component-attr [label] ({:on-change (symbol (concat label "change"))})) ;{onchange introchange}
+(defn- writable-component-value [label] (@valuemap (keyword label)))
+(rum/defc writable-component [label] [(writeable-component-tag label) (writeable-component-attr label)( writable-component-value label)])
 
-(rum/defc mbprint []
+(rum/defc gencomps[label]
+  [label-component writable-component])
+(rum/defc mbprint [](concat 
   [:div
-   [:h3 "Edit!!!!!!!!!!!!!! this and watch it change!"]
-   [:label#intro-lab (titlemap :intro)]
-   [:textarea#intro-val {:on-change introchange} @(valuemap :intro)]
-   [:label#extro-lab  (titlemap :extro)]
-   [:textarea#extro-val {:on-change extrochange}
-                        @(valuemap :extro)]
-   ])
+   [:h3 "Edit!!!!!!!!!!!!!! this and watch it change!"]]
+  (gencomps "intro")
+  (gencomps "extro")
+   )
+   )
 
 (rum/mount (mbprint)
            (. js/document (getElementById "app")))
