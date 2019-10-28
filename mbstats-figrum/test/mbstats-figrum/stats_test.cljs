@@ -28,4 +28,7 @@
    (is (= (stats/opposite lab1) lab2))))
 (deftest opposite-test
   (testing "Opposites"
-    (is (opposite? :intro :extro))))
+    (is (opposite? :intro :extro))
+    (is (opposite? :sense :intui))
+    (is (opposite? :think :feel))
+    (is (opposite? :judge :perce))))

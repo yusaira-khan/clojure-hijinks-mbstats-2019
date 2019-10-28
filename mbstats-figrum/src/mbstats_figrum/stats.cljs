@@ -19,4 +19,10 @@
              :feel "F"})
 (def opposite {:intro :extro
                :extro :intro
+               :judge :perce
+               :perce :judge
+               :sense :intui
+               :intui :sense
+               :feel :think
+               :think :feel
                })
