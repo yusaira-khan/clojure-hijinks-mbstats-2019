@@ -26,3 +26,8 @@
                :feel :think
                :think :feel
                })
+(defrecord Stat   [title    letter  label opposite-label value])
+(def intro (Stat. "Introvert" "I"   :intro :extro          0))
+(def extro (Stat. "Extrovert" "E"   :extro :intro          0))
+(def judge (Stat. "Judging"   "J"   :judge :perce          0))
+(def perce (Stat. "Perceiving" "P"  :perce :judge          0))
