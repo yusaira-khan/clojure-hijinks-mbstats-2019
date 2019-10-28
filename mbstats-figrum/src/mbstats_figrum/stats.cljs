@@ -9,3 +9,11 @@
             :intui "Intuition"
             :think "Thinking"
             :feel "Feeling"} )
+(def letter {:intro "I"
+             :extro "E"
+             :judge "J"
+             :perce "P"
+             :sense "S"
+             :intui "N"
+             :think "T"
+             :feel "F"})

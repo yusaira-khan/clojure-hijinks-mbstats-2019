@@ -14,3 +14,14 @@
     (is (= (stats/title :think) "Thinking"))
     (is (= (stats/title :feel) "Feeling"))
     ))
+(deftest letter-test
+  (testing "Letters"
+    (is (= (stats/letter :intro) "I"))
+    (is (= (stats/letter :extro) "E"))
+    (is (= (stats/letter :judge) "J"))
+    (is (= (stats/letter :perce) "P"))
+    (is (= (stats/letter :sense) "S"))
+    (is (= (stats/letter :intui) "N"))
+    (is (= (stats/letter :think) "T"))
+    (is (= (stats/letter :feel) "F"))))
+
