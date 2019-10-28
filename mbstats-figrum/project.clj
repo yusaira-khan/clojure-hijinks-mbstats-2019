@@ -11,7 +11,7 @@
                  [org.clojure/core.async  "0.4.500"]
                  [rum "0.11.3"]
                  [garden "1.3.3"]
-                 [devcards "0.2.1-7"]
+                 [devcards "0.2.6"]
                  ]
 
   :plugins [[lein-figwheel "0.5.19"]
