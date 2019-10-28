@@ -2,4 +2,4 @@
 
 (defonce stats "" )
 
-(defn getstats [lab] "hi2" )
+(defn getstats [lab] "hi" )
