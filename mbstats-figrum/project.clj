@@ -11,6 +11,7 @@
                  [org.clojure/core.async  "0.4.500"]
                  [rum "0.11.3"]
                  [garden "1.3.3"]
+                 [devcards "0.2.1-7"]
                  ]
 
   :plugins [[lein-figwheel "0.5.19"]
@@ -50,7 +51,18 @@
                 :compiler {:output-to "resources/public/js/compiled/mbstats_figrum.js"
                            :main mbstats-figrum.core
                            :optimizations :advanced
-                           :pretty-print false}}]}
+                           :pretty-print false}}
+               {:id "test"
+                :source-paths ["src" "test"]
+                :figwheel {:devcards true}
+                :compiler {:main runners.browser
+                           :optimizations :none
+                           :asset-path "cljs/tests/out"
+                           :output-dir "resources/public/cljs/tests/out"
+                           :output-to "resources/public/cljs/tests/all-tests.js"
+                           :source-map-timestamp true}}
+
+               ]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
