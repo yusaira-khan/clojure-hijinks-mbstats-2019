@@ -22,8 +22,10 @@
     (is (= (stats/letter :perce) "P"))
     (is (= (stats/letter :sense) "S"))
     (is (= (stats/letter :intui) "N"))))
-;(def isopposite [lab1 lab2] (=()))
+(defn- opposite? [lab1 lab2]
+  (and
+   (is (= (stats/opposite lab2) lab1))
+   (is (= (stats/opposite lab1) lab2))))
 (deftest opposite-test
   (testing "Opposites"
-    (is (= (stats/opposite :intro) :extro))
-    (is (= (stats/opposite :extro) :intro))))
+    (is (opposite? :intro :extro))))

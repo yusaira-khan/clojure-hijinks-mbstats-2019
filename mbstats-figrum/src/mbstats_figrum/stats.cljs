@@ -18,5 +18,5 @@
              :think "T"
              :feel "F"})
 (def opposite {:intro :extro
-         ;      :extro :intro
+               :extro :intro
                })
