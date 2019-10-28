@@ -1,4 +1,6 @@
 (ns mbstats-figrum.stats)
 
 
-(defn title [lab] "Introvert" )
+(def title {:intro "Introvert",
+            :extro "Extrovert",
+            :judge "Judging"} )
