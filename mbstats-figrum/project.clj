@@ -11,11 +11,13 @@
                  [org.clojure/core.async  "0.4.500"]
                  [rum "0.11.3"]
                  [garden "1.3.3"]
+                 [lein-doo "0.1.10"]
                  ]
 
   :plugins [[lein-figwheel "0.5.19"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
             [lein-garden "0.3.0"]
+            [lein-doo "0.1.10"]
             ]
 
   :source-paths ["src"]
@@ -50,7 +52,14 @@
                 :compiler {:output-to "resources/public/js/compiled/mbstats_figrum.js"
                            :main mbstats-figrum.core
                            :optimizations :advanced
-                           :pretty-print false}}]}
+                           :pretty-print false}}
+               {:id "test"
+                :source-paths ["src" "test"]
+                :compiler {:main mbstats-figrum.doo
+                           :optimizations :none
+                           :output-to "resources/public/cljs/tests/all-tests.js"}}
+
+               ]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
@@ -96,7 +105,8 @@
                      :compiler {:output-to "resources/public/css/screen.css"
                                 :pretty-print? false}}]}
   :profiles {:dev {:dependencies [[binaryage/devtools "0.9.10"]
-                                  [figwheel-sidecar "0.5.19"]]
+                                  [figwheel-sidecar "0.5.19"]
+                                 ]
                    ;; need to add dev source path here to get user.clj loaded
                    :source-paths ["src" "dev"]
                    ;; need to add the compliled assets to the :clean-targets
