@@ -21,7 +21,9 @@
     (is (= (stats/letter :judge) "J"))
     (is (= (stats/letter :perce) "P"))
     (is (= (stats/letter :sense) "S"))
-    (is (= (stats/letter :intui) "N"))
-    (is (= (stats/letter :think) "T"))
-    (is (= (stats/letter :feel) "F"))))
-
+    (is (= (stats/letter :intui) "N"))))
+;(def isopposite [lab1 lab2] (=()))
+(deftest opposite-test
+  (testing "Opposites"
+    (is (= (stats/opposite :intro) :extro))
+    (is (= (stats/opposite :extro) :intro))))
