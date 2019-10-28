@@ -14,6 +14,8 @@
     (is (= (stats/title :think) "Thinking"))
     (is (= (stats/title :feel) "Feeling"))
     ))
+
+
 (deftest letter-test
   (testing "Letters"
     (is (= (stats/letter :intro) "I"))
@@ -22,13 +24,19 @@
     (is (= (stats/letter :perce) "P"))
     (is (= (stats/letter :sense) "S"))
     (is (= (stats/letter :intui) "N"))))
+
+
 (defn- opposite? [lab1 lab2]
   (and
    (is (= (stats/opposite lab2) lab1))
    (is (= (stats/opposite lab1) lab2))))
+
 (deftest opposite-test
   (testing "Opposites"
     (is (opposite? :intro :extro))
     (is (opposite? :sense :intui))
     (is (opposite? :think :feel))
     (is (opposite? :judge :perce))))
+
+;defn- (val? [label])
+;(deftest valueset (is (update :intro 10)))
