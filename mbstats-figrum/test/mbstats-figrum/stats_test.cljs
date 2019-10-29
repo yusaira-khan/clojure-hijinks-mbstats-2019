@@ -38,5 +38,11 @@
     (is (opposite? :think :feel))
     (is (opposite? :judge :perce))))
 
-;defn- (val? [label])
-;(deftest valueset (is (update :intro 10)))
+
+(deftest value-not-change
+  (testing "Independent values" 
+    (is (= 0 (stats/retr :intro)))
+    (is (stats/change :intro 10))
+    (is (= 10 (stats/retr :intro)))
+    (is (= 0 (stats/retr :intui)))
+    ))
