@@ -18,5 +18,9 @@
 (defn letter [label] (:letter (allstats label)))
 (defn opposite [label] (:opposite-label (allstats label)))
 (defn- atval [label] (:value (allstats label)))
-(defn change [label value] (reset! (atval label) value ))
+(defn change [label value]
+  (
+   (reset! (atval (opposite label)) (- 100  value))
+   (reset! (atval label) value )
+   ))
 (defn retr [label] @(atval label))

@@ -42,7 +42,8 @@
 (deftest value-not-change
   (testing "Independent values" 
     (is (= 0 (stats/retr :intro)))
-    (is (stats/change :intro 10))
-    (is (= 10 (stats/retr :intro)))
+    (is (stats/change :intro 30))
+    (is (= 30 (stats/retr :intro)))
+    (is (= 70 (stats/retr :extro)))
     (is (= 0 (stats/retr :intui)))
     ))
