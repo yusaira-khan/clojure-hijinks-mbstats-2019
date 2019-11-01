@@ -24,11 +24,3 @@
    (reset! (atval label) value )
    ))
 (defn retr [label] @(atval label))
-
-(defrecord Dichom stat1 stat2 pos title )
-(def attit (Dichom. :intro :extro 0 "Attitude"))
-(def perce-func (Dichom. :sense :intui 1 "Perceiving Function"))
-(def judge-func (Dichom. :think :feel 2 "Judging Function"))
-(def life-pref (Dichom. :judge :perce 3 "Lifestyle preference"))
-
-;(def intp [:intro :intui :think :perce])
