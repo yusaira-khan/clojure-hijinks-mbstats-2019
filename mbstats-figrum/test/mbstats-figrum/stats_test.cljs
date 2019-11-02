@@ -52,3 +52,13 @@
     (is (stats/reset-all ))
     (is (= 0 (stats/retr :intro)))
     ))
+
+(deftest get-intro-when-greater
+  (testing "Getting intro when opposite is greater"
+    (is (stats/change :extro 30))
+    (is (stats/change :intui 50))
+    (is (stats/change :think 10))
+    (is (stats/change :perce 40))
+    (is (= (stats/mb :entp ) (* 30 50 10 40)))
+    ;(is (= (stats/mb :isfj ) (* 70 50 90 60)))
+    ))

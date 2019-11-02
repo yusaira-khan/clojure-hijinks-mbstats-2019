@@ -24,5 +24,9 @@
 (defn change [label value]
    (setval (opposite label) (- 100  value))
    (setval label value )
-   )
+  )
 (defn retr [label] @(atval label))
+(def entp [extro intui think perce])
+(defn- retr_s [lab_s] (retr (keyword lab_s)))
+(defn- map_s [l] (map retr_s l))
+(defn mb [lab] (* (map_s ((symbol lab)))))
