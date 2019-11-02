@@ -27,8 +27,27 @@
    (setval label value )
   )
 (defn retr [label] @(atval label))
-(def entp [:extro :intui :think :perce])
+(defrecord BigStat [title statlist link color])
+;is
+(def istp [:intro :sense :think :perce])
+(def istj [:intro :sense :think :judge])
+(def isfp [:intro :sense :feel :perce])
 (def isfj [:intro :sense :feel :judge])
+;in
+(def intp [:intro :intui :think :perce])
+(def intj [:intro :intui :think :judge])
+(def infp [:intro :intui :feel :perce])
+(def infj [:intro :intui :feel :judge])
+;es
+(def estp [:extro :sense :think :perce])
+(def esfj [:extro :sense :feel :judge])
+(def estj [:extro :sense :think :judge])
+(def esfp [:extro :sense :feel :perce])
+;en
+(def entp [:extro :intui :think :perce])
+(def enfj [:extro :intui :feel :judge])
+(def entj [:extro :intui :think :judge])
+(def enfp [:extro :intui :feel :perce])
 ;(defn- retr-sym [lab_s] (retr (keyword lab_s)))
 (defn retr-seq [l] (map retr l))
 (def sym-hack {:entp entp :isfj isfj})
