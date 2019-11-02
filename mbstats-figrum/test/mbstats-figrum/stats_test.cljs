@@ -52,13 +52,24 @@
     (is (stats/reset-all ))
     (is (= 0 (stats/retr :intro)))
     ))
-
+(deftest internal-function-test
+  (testing "internal functions. requires private functions to be public"
+    (is (= 30 (* 2 3 5)))
+    (is (= '(0 0 0 0) (stats/retr-seq stats/entp)))
+    (is (= 0 ( reduce *(stats/retr-seq stats/entp))))
+    ;(is (re))
+    ))
 (deftest get-intro-when-greater
   (testing "Getting intro when opposite is greater"
     (is (stats/change :extro 30))
     (is (stats/change :intui 50))
     (is (stats/change :think 10))
     (is (stats/change :perce 40))
-    (is (= (stats/mb :entp ) (* 30 50 10 40)))
-    ;(is (= (stats/mb :isfj ) (* 70 50 90 60)))
+    (is (=
+         (stats/mb :entp )
+           (* 30 50 10 40)
+         )
+    )
+    (is (= (stats/mb :isfj ) (* 70 50 90 60)))
+    (is (stats/reset-all ))
     ))
