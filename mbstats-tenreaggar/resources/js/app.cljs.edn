@@ -1,3 +1,0 @@
-{:require  [mbstats-tenreaggar.app]
- :init-fns [mbstats-tenreaggar.app/init]
- :compiler-options {:asset-path "js/app.out"}}

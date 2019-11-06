@@ -1,9 +1,0 @@
-(println "hi")
-(start-repl)
-(.log js/console "test")
-(.log js/console "50")
-(let [c (.. js/document (createElement "DIV"))]
-    (aset c "innerHTML" "<p>i'm dynamically created</p>")
-    (.. js/document (getElementById "container") (appendChild c)))
-    (aset d "innerHTML" "<p>i'm dynamically cr</p>")
-    (aset c "innerHTML" "<p>i'm dynamically cr</p>")
