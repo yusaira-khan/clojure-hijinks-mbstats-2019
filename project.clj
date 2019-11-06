@@ -8,7 +8,9 @@
 
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.520"]
-                 [org.clojure/core.async  "0.4.500"]]
+                 [org.clojure/core.async  "0.4.500"]
+                 [devcards "0.2.6"]
+                 ]
 
   :plugins [[lein-figwheel "0.5.19"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
@@ -45,7 +47,17 @@
                 :compiler {:output-to "resources/public/js/compiled/mbstats.js"
                            :main mbstats.core
                            :optimizations :advanced
-                           :pretty-print false}}]}
+                           :pretty-print false}}
+               {:id "test"
+                :source-paths ["src" "test"]
+                :figwheel {:devcards true}
+                :compiler {:main runners.browser
+                           :optimizations :none
+                           :asset-path "cljs/tests/out"
+                           :output-dir "resources/public/cljs/tests/out"
+                           :output-to "resources/public/cljs/tests/all-tests.js"
+                           :source-map-timestamp true}}
+               ]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
